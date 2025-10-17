@@ -36,24 +36,24 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const checkLicense = async () => {
-      try {
-        const res = await fetch (
-          "https://github.com/AdeelSuleman/AnnaPorfolio-Liicense.git",
-          { cache: "no-store" }
-        );
-        const data = await res.json();
-        setIsLicensed(data.active);
-        setMessage(data.message);
-      } catch (error) {
-        console.error("License check failed:", error);
-        setIsLicensed(false);
-        setMessage("License verification failed.");
-      }
-    };
+  const checkLicense = async () => {
+    try {
+      const res = await fetch(
+        "https://raw.githubusercontent.com/AdeelSuleman/AnnaPorfolio-License/main/license.json",
+        { cache: "no-store" }
+      );
+      const data = await res.json();
+      setIsLicensed(Boolean(data.active));
+      setMessage(data.message || "");
+    } catch (error) {
+      console.error("License check failed:", error);
+      setIsLicensed(false);
+      setMessage("License verification failed.");
+    }
+  };
 
-    checkLicense();
-  },[]);
+  checkLicense();
+}, []);
 
   if (!isLicensed) {
     return(
