@@ -32,6 +32,38 @@ function App() {
     }
   ])
 
+  const [isLicensed, setIsLicensed] = useState(true);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const checkLicense = async () => {
+      try {
+        const res = await fetch (
+          "https://github.com/AdeelSuleman/AnnaPorfolio-Liicense.git",
+          { cache: "no-store" }
+        );
+        const data = await res.json();
+        setIsLicensed(data.active);
+        setMessage(data.message);
+      } catch (error) {
+        console.error("License check failed:", error);
+        setIsLicensed(false);
+        setMessage("License verification failed.");
+      }
+    };
+
+    checkLicense();
+  },[]);
+
+  if (!isLicensed) {
+    return(
+      <div className='w-full h-screen flex items-center justify-center bg-gray-900 text-white flex-col gap-2'>
+        <h1 className='text-2xl font-bold'>⚠ Site Block</h1>
+        <p>{message}</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <RouterProvider router={router}/>
