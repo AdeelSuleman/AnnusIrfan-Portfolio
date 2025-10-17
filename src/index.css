@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap');
+
+@theme{
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --font-Manrope: "Manrope", sans-serif;
+  
+  --color-themebg: #020312;
+  --color-colortext: #fff;
+  --color-colorDark: #000;
+  --color-button: #FF6F49;
+
+  /* Heading Text */
+  --text-Heading1: 60px;
+  --text-Heading2: 50px;
+  --text-Heading3: 45px;
+  --text-Heading4: 40px;
+  --text-Heading5: 35px;
+  --text-Heading6: 30px;
+  
+  /* Paragraph text */
+  --text-Paragraph1: 26px;
+  --text-Paragraph2: 24px;
+  --text-Paragraph3: 22px;
+  --text-Paragraph4: 20px;
+  --text-Paragraph5: 18px;
+  --text-Paragraph6: 16px;
+  
+  --breakpoint-xs: 21.875rem; /*400px*/
+  --breakpoint-sm: 40rem; /*640px*/
+  --breakpoint-md: 48rem; /*768px*/
+  --breakpoint-lg: 64rem; /*1024px*/
+  --breakpoint-xl: 80rem; /*1280px*/
+  --breakpoint-2xl: 96rem; /*1536px*/
+  --breakpoint-3xl: 98rem; /*1568px*/
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+  .animate-spin-reverse {
+    animation: spin-reverse 3s linear infinite;
+  }
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+/* Scrollbar overall width */
+::-webkit-scrollbar {
+  width: 6px;         /* yahan width set karo */
+}
+
+/* Scrollbar ka track (background) */
+::-webkit-scrollbar-track {
+  background: #111;   /* yahan apna background color do */
+}
+
+/* Scrollbar ka thumb (move hone wala part) */
+::-webkit-scrollbar-thumb {
+  background-color: #FF6F49;  /* yahan apna color do */
+  border-radius: 10px;        /* rounded scrollbar */
+  border: 2px solid #111;     /* thumb ke around border (optional) */
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FFC876;
+}

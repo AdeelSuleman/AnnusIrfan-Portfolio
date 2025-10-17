@@ -1,0 +1,37 @@
+.slick-dots li button:before{
+    color: white;
+}
+
+.slick-dots li.slick-active button:before{
+    color: white;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge ke liye */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE aur Edge ke liye */
+  scrollbar-width: none;     /* Firefox ke liye */
+}
+
+
+.hero-text em {
+  display: inline-block;
+  font-style: normal;
+  transform: rotate(-10deg) translateY(0.5rem);
+  opacity: 0;
+  animation: animateHeroText 0.5s forwards;
+}
+
+@keyframes animateHeroText {
+  0% {
+    transform: rotate(-10deg) translateY(0.5rem);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
